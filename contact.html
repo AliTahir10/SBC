@@ -1,18 +1,32 @@
 <!doctype html>
 <html class="no-js" lang="en">
-<!doctype html>
-<html class="no-js" lang="en">
-
 <head>
   <link rel="icon" href="images/sbc.jpg">
   <style>
-h1 {text-align: center;}
-p {text-align: center;}
-div {text-align: center;}
-</style>
+    h1 {text-align: center;}
+    p {text-align: center;}
+    div {text-align: center;}
+    /* Map styles */
+    .map-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      background: #f4f4f4;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    .map-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
   <meta charset="UTF-8">
   <meta name="description"
-    content="Season Business Consultancy is  an international business development, marketing consultancy and services which work for small businesses as well as big ones.">
+    content="Season Business Consultancy is an international business development, marketing consultancy and services which work for small businesses as well as big ones.">
   <meta name="keywords"
     content="planning, strategy, development, management, bid, audit, business, consulting">
   <meta name="author" content="dukibu">
@@ -28,9 +42,6 @@ div {text-align: center;}
 </head>
 
 <body id="top">
-  <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
 
   <!-- Header -->
   <header role="banner">
@@ -70,44 +81,32 @@ div {text-align: center;}
         <h2>Contact Information</h2>
 
         <div class="col-narrow contact-info">
-         <div class="services-box">
-          
-          <p>Call us now for free consultation on your business needs</p>
-          <p><i class="fas fa-phone"></i></p>
-          <p>Mobile: <a href="tel:+4407817900745">+44 7817 900745</a></p><br>
-           <p>Office: <a href="tel:+4402088906456">+44 2088 906456</a></p>
+          <div class="services-box">
+            <p>Call us now for free consultation on your business needs</p>
+            <p><i class="fas fa-phone"></i></p>
+            <p>Mobile: <a href="tel:+4407817900745">+44 7817 900745</a></p><br>
+            <p>Office: <a href="tel:+4402088906456">+44 2088 906456</a></p>
           </div>
-          <div class = "services-box">
+
+          <div class="services-box">
             <p>Email us for any business related queries</p>
-          <p><i class="fas fa-mail-bulk"></i></p>
-          <p><a href="mailto:info@sbcadvisory.co.uk">info@sbcadvisory.co.uk</a></p> 
+            <p><i class="fas fa-mail-bulk"></i></p>
+            <p><a href="mailto:info@sbcadvisory.co.uk">info@sbcadvisory.co.uk</a></p>
           </div>
         </div><!-- End of class="col-narrow contact-info" -->
       </div>
-      </div>
+    </section>
+
+    <!-- Google Map (No API key needed) -->
+    <div id="google-map" class="map-wrap">
+      <iframe
+        title="Map to Season Business Consultancy"
+        src="https://www.google.com/maps?q=51.43729,-0.41613&z=14&output=embed"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
-    
-
-    <!-- Google Map -->
-    <div id="google-map"></div>
-  
-  <script>
-      function initMap() {
-        var location = { lat: 51.43729, lng: -0.41613 };
-        var map = new google.maps.Map(document.getElementById("google-map"), {
-          zoom: 14,
-          center: location
-        });
-        var marker = new google.maps.Marker({
-          position: location,
-          map: map
-        });
-      }
-    </script>
-
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrCZeh5uOreaVljsVDLpUkFYrddJJDvEI&callback=initMap">
-      </script>
 
   </main>
 
@@ -115,24 +114,14 @@ div {text-align: center;}
   <footer role="contentinfo">
     <div class="content-wrap">
       <a href="#top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
-      <p class="credit">Copyright &copy; 2021 SBC
+      <p class="credit">Copyright &copy; 2021 SBC</p>
       <p>Website created by SBC</p>
       <hr>
     </div><!-- End of class="content-wrap" -->
   </footer>
-  
-  <!-- <script src="js/modernizr.js"></script> -->
+
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. 
-    <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-    -->
-
 </body>
-
 </html>
