@@ -7,21 +7,11 @@
     p {text-align: center;}
     div {text-align: center;}
     /* Map styles */
-    .map-wrap {
-      position: relative;
+    #google-map {
       width: 100%;
-      padding-bottom: 56.25%; /* 16:9 ratio */
-      background: #f4f4f4;
+      height: 420px;
       border-radius: 12px;
-      overflow: hidden;
       margin-top: 20px;
-    }
-    .map-wrap iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
     }
     /* Creator link style */
     .creator-link {
@@ -105,16 +95,52 @@
       </div>
     </section>
 
-    <!-- Google Map Embed -->
-    <div id="google-map" class="map-wrap">
-      <iframe
-        title="Season Business Consultancy Location"
-        src="https://www.google.com/maps?q=51.43729,-0.41613&z=16&hl=en&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen>
-      </iframe>
-    </div>
+    <!-- Google Map (JavaScript API) -->
+    <div id="google-map"></div>
+
+    <script>
+      function initMap() {
+        const location = { lat: 51.43729, lng: -0.41613 };
+        const map = new google.maps.Map(document.getElementById("google-map"), {
+          center: location,
+          zoom: 16,
+          mapTypeControl: true,
+          streetViewControl: true
+        });
+
+        const marker = new google.maps.Marker({
+          position: location,
+          map: map,
+          title: "Season Business Consultancy"
+        });
+
+        const infoWindow = new google.maps.InfoWindow({
+          content: `
+            <div style="min-width:220px">
+              <h3 style="margin:0 0 6px">Season Business Consultancy</h3>
+              <p style="margin:0 0 6px">
+                51.43729, -0.41613<br>
+                <a href="https://maps.google.com/?q=51.43729,-0.41613" target="_blank" rel="noopener">
+                  Open in Google Maps
+                </a>
+              </p>
+            </div>
+          `
+        });
+
+        marker.addListener("click", () => {
+          infoWindow.open({
+            anchor: marker,
+            map: map
+          });
+        });
+      }
+    </script>
+
+    <!-- Replace YOUR_API_KEY_HERE with your actual restricted API key -->
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap">
+    </script>
 
   </main>
 
