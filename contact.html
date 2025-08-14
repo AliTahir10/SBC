@@ -1,44 +1,79 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Season Business Consultancy</title>
+
   <link rel="icon" href="images/sbc.jpg">
+
+  <!-- Fonts & Icons (optional) -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700" rel="stylesheet">
+
+  <!-- Your existing CSS (optional) -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Leaflet CSS (no key needed) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
   <style>
-    h1 {text-align: center;}
-    p {text-align: center;}
-    div {text-align: center;}
-    /* Map styles */
-    #google-map {
+    /* Quick page styles kept from your original */
+    h1 { text-align: center; }
+    p { text-align: center; }
+    div { text-align: center; }
+
+    /* Interactive map styles */
+    #map {
       width: 100%;
-      height: 420px;
+      height: 460px;              /* Adjust height as you like */
       border-radius: 12px;
-      margin-top: 20px;
+      overflow: hidden;
+      margin: 20px 0;
     }
-    /* Creator link style */
+
+    /* Top-right action buttons on the map */
+    .map-actions {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      display: flex;
+      gap: 8px;
+      z-index: 1000;
+    }
+    .map-actions a,
+    .map-actions button {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 14px;
+      line-height: 1;
+      text-decoration: none;
+      color: #111827;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0,0,0,.06);
+    }
+    .map-actions a:hover,
+    .map-actions button:hover {
+      background: #f9fafb;
+    }
+
+    /* “Ali Tahir” link styling: clickable but not “link-blue” */
     .creator-link {
       color: inherit;
       text-decoration: none;
       font-weight: bold;
       cursor: pointer;
     }
-    .creator-link:hover {
-      text-decoration: underline;
-    }
+    .creator-link:hover { text-decoration: underline; }
   </style>
-  <meta charset="UTF-8">
-  <meta name="description"
-    content="Season Business Consultancy is an international business development, marketing consultancy and services which work for small businesses as well as big ones.">
-  <meta name="keywords"
-    content="planning, strategy, development, management, bid, audit, business, consulting">
-  <meta name="author" content="dukibu">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <title>Contact | Season Business Consultancy</title>
 </head>
 
 <body id="top">
@@ -46,12 +81,9 @@
   <!-- Header -->
   <header role="banner">
     <div class="nav-wrap">
-      <!-- Logo -->
       <div class="logo">
         <a href="index.html" title="SBC logo"><img src="images/sbc.jpg" alt="SBC logo"></a>
       </div>
-
-      <!-- Navigation -->
       <nav id="myTopnav" class="topnav" role="navigation">
         <a href="index.html" title="Home">Home</a>
         <a href="about.html" title="About">About Us</a>
@@ -66,14 +98,12 @@
   <!-- Main -->
   <main role="main">
 
-    <!-- Contact Hero Container -->
     <div class="hero contact-hero">
       <div class="content-wrap">
         <h1>Contact</h1>
       </div>
     </div>
 
-    <!-- Contact Info -->
     <section class="welcome">
       <div class="content-wrap">
         <h2>Contact Information</h2>
@@ -95,52 +125,20 @@
       </div>
     </section>
 
-    <!-- Google Map (JavaScript API) -->
-    <div id="google-map"></div>
+    <!-- Interactive Map (Leaflet + OpenStreetMap) -->
+    <div style="position:relative">
+      <!-- quick action buttons -->
+      <div class="map-actions">
+        <!-- open directions in Google Maps -->
+        <a id="gmapsLink" target="_blank" rel="noopener">Open in Google Maps</a>
+        <!-- open Street View in new tab (Google) -->
+        <a id="streetViewLink" target="_blank" rel="noopener">Street View</a>
+        <!-- locate user button -->
+        <button id="locateBtn" type="button">My Location</button>
+      </div>
 
-    <script>
-      function initMap() {
-        const location = { lat: 51.43729, lng: -0.41613 };
-        const map = new google.maps.Map(document.getElementById("google-map"), {
-          center: location,
-          zoom: 16,
-          mapTypeControl: true,
-          streetViewControl: true
-        });
-
-        const marker = new google.maps.Marker({
-          position: location,
-          map: map,
-          title: "Season Business Consultancy"
-        });
-
-        const infoWindow = new google.maps.InfoWindow({
-          content: `
-            <div style="min-width:220px">
-              <h3 style="margin:0 0 6px">Season Business Consultancy</h3>
-              <p style="margin:0 0 6px">
-                51.43729, -0.41613<br>
-                <a href="https://maps.google.com/?q=51.43729,-0.41613" target="_blank" rel="noopener">
-                  Open in Google Maps
-                </a>
-              </p>
-            </div>
-          `
-        });
-
-        marker.addListener("click", () => {
-          infoWindow.open({
-            anchor: marker,
-            map: map
-          });
-        });
-      }
-    </script>
-
-    <!-- Replace YOUR_API_KEY_HERE with your actual restricted API key -->
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPA0o-Mgjtw9TbbEZrJn_oBsnoBKWoYDk&callback=initMap">
-    </script>
+      <div id="map" aria-label="Interactive map showing Season Business Consultancy"></div>
+    </div>
 
   </main>
 
@@ -149,16 +147,90 @@
     <div class="content-wrap">
       <a href="#top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
       <p class="credit">Copyright &copy; 2021 SBC</p>
-      <p>Website created by 
+      <p>Website created by
         <a href="https://alitahir.co.uk" target="_blank" class="creator-link">Ali Tahir</a>
       </p>
       <hr>
     </div>
   </footer>
 
+  <!-- JS: your scripts (optional) -->
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
+  <!-- Leaflet JS (no key needed) -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="">
+  </script>
+
+  <script>
+    // --- Business coordinates ---
+    const LAT = 51.43729;
+    const LNG = -0.41613;
+
+    // Build handy links that open Google Maps and Street View in a new tab
+    const gmapsUrl = `https://www.google.com/maps?q=${LAT},${LNG}`;
+    // Street View via Google Maps URLs API (opens directly in Street View at your coords)
+    const streetViewUrl = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${LAT},${LNG}`;
+
+    // Set the action button hrefs
+    document.getElementById('gmapsLink').href = gmapsUrl;
+    document.getElementById('streetViewLink').href = streetViewUrl;
+
+    // --- Initialize Leaflet map ---
+    const map = L.map('map', {
+      center: [LAT, LNG],
+      zoom: 16,
+      zoomControl: true,         // +/– control
+      attributionControl: true   // OSM attribution
+    });
+
+    // OpenStreetMap tiles (free, no key)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Marker + popup
+    const marker = L.marker([LAT, LNG]).addTo(map);
+    marker.bindPopup(`
+      <div style="min-width:220px;text-align:left;">
+        <h3 style="margin:0 0 6px;">Season Business Consultancy</h3>
+        <p style="margin:0 0 8px;">${LAT.toFixed(5)}, ${LNG.toFixed(5)}</p>
+        <p style="margin:0;">
+          <a href="${gmapsUrl}" target="_blank" rel="noopener">Open in Google Maps</a><br>
+          <a href="${streetViewUrl}" target="_blank" rel="noopener">Open Street View</a>
+        </p>
+      </div>
+    `);
+
+    // Open popup by default (optional)
+    marker.openPopup();
+
+    // “My Location” button: centers map on the user if they allow geolocation
+    const locateBtn = document.getElementById('locateBtn');
+    locateBtn.addEventListener('click', () => {
+      if (!navigator.geolocation) {
+        alert('Geolocation is not supported by your browser.');
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          const { latitude, longitude } = pos.coords;
+          const you = L.circleMarker([latitude, longitude], {
+            radius: 8, weight: 2, opacity: 1, fillOpacity: 0.6
+          }).addTo(map);
+          you.bindPopup('You are here').openPopup();
+          map.setView([latitude, longitude], 16, { animate: true });
+        },
+        err => {
+          alert('Could not get your location: ' + err.message);
+        },
+        { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 }
+      );
+    });
+  </script>
 </body>
 </html>
-
