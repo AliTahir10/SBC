@@ -23,6 +23,16 @@
       height: 100%;
       border: 0;
     }
+    /* Creator link style */
+    .creator-link {
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .creator-link:hover {
+      text-decoration: underline;
+    }
   </style>
   <meta charset="UTF-8">
   <meta name="description"
@@ -38,7 +48,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
-  <title>Home | Season Business Consultancy</title>
+  <title>Contact | Season Business Consultancy</title>
 </head>
 
 <body id="top">
@@ -46,7 +56,6 @@
   <!-- Header -->
   <header role="banner">
     <div class="nav-wrap">
-
       <!-- Logo -->
       <div class="logo">
         <a href="index.html" title="SBC logo"><img src="images/sbc.jpg" alt="SBC logo"></a>
@@ -60,8 +69,7 @@
         <a href="services.html" title="Services">Services</a>
         <a href="contact.html" title="Contact">Contact</a>
       </nav>
-
-    </div><!-- End of class="nav-wrap" -->
+    </div>
     <div class="bars"><i class="fas fa-bars"></i></div>
   </header>
 
@@ -75,7 +83,7 @@
       </div>
     </div>
 
-    <!-- Contact Form -->
+    <!-- Contact Info -->
     <section class="welcome">
       <div class="content-wrap">
         <h2>Contact Information</h2>
@@ -93,18 +101,18 @@
             <p><i class="fas fa-mail-bulk"></i></p>
             <p><a href="mailto:info@sbcadvisory.co.uk">info@sbcadvisory.co.uk</a></p>
           </div>
-        </div><!-- End of class="col-narrow contact-info" -->
+        </div>
       </div>
     </section>
 
-    <!-- Google Map (No API key needed) -->
+    <!-- Google Map Embed -->
     <div id="google-map" class="map-wrap">
       <iframe
-        title="Map to Season Business Consultancy"
-        src="https://www.google.com/maps?q=51.43729,-0.41613&z=14&output=embed"
+        title="Season Business Consultancy Location"
+        src="https://www.google.com/maps?q=51.43729,-0.41613&z=16&hl=en&output=embed"
         loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade">
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
       </iframe>
     </div>
 
@@ -114,12 +122,12 @@
   <footer role="contentinfo">
     <div class="content-wrap">
       <a href="#top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
-      <p class="credit">Copyright &copy; 2025 SBC
+      <p class="credit">Copyright &copy; 2021 SBC</p>
       <p>Website created by 
         <a href="https://alitahir.co.uk" target="_blank" class="creator-link">Ali Tahir</a>
       </p>
       <hr>
-    </div><!-- End of class="content-wrap" -->
+    </div>
   </footer>
 
   <script src="js/plugins.js"></script>
@@ -127,4 +135,3 @@
 
 </body>
 </html>
-
