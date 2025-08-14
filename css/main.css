@@ -11,6 +11,17 @@
 /* Global Styles 
   -------------------------------------------------------------------------- */
 
+.creator-link {
+  color: inherit;           /* Match surrounding text color */
+  text-decoration: none;    /* Remove underline */
+  font-weight: bold;        /* Make it stand out */
+  cursor: pointer;          /* Still shows hand cursor on hover */
+}
+
+.creator-link:hover {
+  text-decoration: underline; /* Optional subtle hover effect */
+}
+
 /* Box-sizing Reset */
 html {
   box-sizing: border-box;
@@ -472,4 +483,5 @@ footer .btn {
   footer {
     padding-bottom: 50px;
   }
+
 }
